@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Petition;
 use Illuminate\Database\Seeder;
 
-class Petition extends Seeder
+class PetitionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +14,6 @@ class Petition extends Seeder
      */
     public function run()
     {
-        //
+        Petition::factory()->times(100)->create();
     }
 }
