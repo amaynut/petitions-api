@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PetitionController;
+use App\Http\Controllers\AuthorController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +27,16 @@ Route::apiResource('/petitions', PetitionController::class);
 // map specific resources
 /*
 Route::resource('/petitions', PetitionController::class)->only(
-    ['index', 'stored']
+    ['index', 'store']
 );
 */
 // map one resource at a time
 //Route::get('petitions' , [PetitionController::class, 'index']);
+
+// ---------- Author resource ------
+Route::resource('/authors', AuthorController::class)->only(
+    [
+        'index', // get all authors
+        'show' // get a specific author
+    ]
+);
