@@ -24,22 +24,27 @@ class PetitionController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return PetitionResource
      */
     public function store(Request $request)
     {
-        //
+        $petition = Petition::create($request->only([
+            'title', 'description', 'category', 'author', 'signees'
+        ]));
+
+        return new PetitionResource($petition);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Petition  $petition
-     * @return \Illuminate\Http\Response
+     * @return PetitionResource
+     * te\Http\Response
      */
     public function show(Petition $petition)
     {
-        //
+        return new PetitionResource($petition);
     }
 
     /**
