@@ -14,6 +14,11 @@ class PetitionCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+          'data' => $this->collection,
+            // return extra meta data
+          'author' => 'Said Guerrab',
+          'version' => '1.1'
+        ];
     }
 }
